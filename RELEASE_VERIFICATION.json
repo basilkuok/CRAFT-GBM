@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "release": "v1.0.0",
+  "verification_date": "2026-11-08",
+  "scope": "CPU model source and executable examples; not a rerun of the paper benchmark suite.",
+  "source_identity": {
+    "original_file_count": 803,
+    "all_original_files_byte_identical": true,
+    "hash_manifest": "SOURCE_MANIFEST.json"
+  },
+  "environment": {
+    "os": "Linux x86_64",
+    "python": "3.12.7",
+    "compiler": "GCC 13.3.0",
+    "cmake": "3.28.3",
+    "boost": "1.82.0",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "narwhals": "2.25.0",
+    "runtime_note": "The test host used its GCC-compatible libstdc++ instead of the older runtime supplied by Conda."
+  },
+  "checks": {
+    "clean_cpu_build": {
+      "result": "passed",
+      "targets": [
+        "lightgbm",
+        "_lightgbm",
+        "testlightgbm"
+      ],
+      "build_type": "Release",
+      "openmp": true,
+      "gpu": false,
+      "mpi": false
+    },
+    "native_tests": {
+      "result": "passed",
+      "tests": 41,
+      "failures": 0,
+      "filter": "GammaExponentialMixtureTest.*:AdaptiveFeature*.*"
+    },
+    "python_tests": {
+      "result": "passed",
+      "tests": 4,
+      "failures": 0,
+      "command": "python -m unittest discover -s tests -p test_craft.py -v",
+      "coverage": [
+        "training-loss patience and strict improvement threshold",
+        "binary, regression, and multiclass fixed-horizon training",
+        "native selected-feature counts",
+        "prediction serialization round trip",
+        "completed endogenous patience endpoint",
+        "invalid horizon and no-progress rejection"
+      ]
+    },
+    "endogenous_example": {
+      "result": "passed",
+      "stop_reason": "training_loss_patience",
+      "completed_rounds": 734
+    },
+    "exogenous_example": {
+      "result": "passed",
+      "stop_reason": "fixed_horizon",
+      "completed_rounds": 30
+    }
+  }
+}

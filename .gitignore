@@ -1,0 +1,10 @@
+/build/
+/.venv*/
+/lib_lightgbm.*
+/lightgbm
+/testlightgbm
+/python-package/lightgbm/lib/
+/python-package/lightgbm/VERSION.txt
+__pycache__/
+*.py[cod]
+.pytest_cache/

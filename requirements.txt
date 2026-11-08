@@ -1,0 +1,4 @@
+# Core Python dependencies used by the publication benchmark (Python 3.12).
+numpy==1.26.4
+scipy==1.13.1
+narwhals==2.25.0
