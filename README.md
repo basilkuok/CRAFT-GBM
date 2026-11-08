@@ -1,14 +1,11 @@
 # CRAFT-GBM
 
 CRAFT-GBM (Confidence-Ranked Adaptive Feature Tracking) is the native CPU
-LightGBM extension accompanying **CRAFT-GBM: Selecting Best Features for
-Gradient-Boosted Machine Learning**, by Basil Kuok, Yi Zhou, Yao Xuan,
+LightGBM extension accompanying the paper **CRAFT-GBM: Selecting Best Features for
+Gradient-Boosted Machine Learning** (available on arXiv), by Basil Kuok, Yi Zhou, Yao Xuan,
 Shuping Li, and Ke-Wei Huang.
 
-This repository releases the model implementation and a small executable example.
-It does not contain the full RQ1/RQ2 benchmark suite, competing methods, datasets,
-or measured results; those belong to the separate supplementary code package.
-The examples verify model operation, not the paper's aggregate performance claims.
+This repository releases the CRAFT-GBM model source code for direct use by the research community and the public. We welcome all feedbacks and pull requests to improve the CRAFT-GBM model. 
 
 ## Build and run
 
