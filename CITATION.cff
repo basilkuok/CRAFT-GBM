@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "Please cite this software release and the accompanying CRAFT-GBM paper."
 type: software
 title: "CRAFT-GBM: Confidence-Ranked Adaptive Feature Tracking"
-version: 1.0.0
-date-released: 2026-11-08
+version: 1.1.0
+date-released: 2026-11-10
 url: "https://github.com/basilkuok/CRAFT-GBM"
 repository-code: "https://github.com/basilkuok/CRAFT-GBM"
 authors:
@@ -17,3 +17,22 @@ authors:
     given-names: Shuping
   - family-names: Huang
     given-names: Ke-Wei
+preferred-citation:
+  type: generic
+  title: "CRAFT-GBM: Selecting Best Features for Gradient-Boosted Machine Learning"
+  authors:
+    - family-names: Kuok
+      given-names: Basil
+    - family-names: Zhou
+      given-names: Yi
+    - family-names: Xuan
+      given-names: Yao
+    - family-names: Li
+      given-names: Shuping
+    - family-names: Huang
+      given-names: Ke-Wei
+  year: 2026
+  date-published: 2026-11-09
+  doi: "10.48550/arXiv.2611.11914"
+  url: "https://arxiv.org/abs/2611.11914"
+  notes: "arXiv preprint, arXiv:2611.11914"

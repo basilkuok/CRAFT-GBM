@@ -1,14 +1,10 @@
 """Focused public-release checks; no benchmark datasets or performance claims."""
-import sys
-from pathlib import Path
 import unittest
 from unittest.mock import patch
 
 import lightgbm as lgb
+from lightgbm.craft import TrainingLossController, train_craft
 import numpy as np
-
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "examples"))
-from train_craft import TrainingLossController, train_craft
 
 
 class CraftTests(unittest.TestCase):
@@ -87,6 +83,14 @@ class CraftTests(unittest.TestCase):
             if loss < anchor - .001 * result.training_losses[0]:
                 anchor, last_reset = loss, r
         self.assertEqual(completed - last_reset, 10)
+
+    def test_mismatched_craft_installation_fails_before_training(self):
+        for module, name, value in ((lgb.basic, "_LIB", object()),
+                                    (lgb, "validation_stopping", None)):
+            with self.subTest(component=name), patch.object(module, name, value):
+                with self.assertRaisesRegex(RuntimeError, "CRAFT-GBM.*check_install") as error:
+                    train_craft(self.params(), lgb.Dataset(self.x, label=self.y), num_boost_round=5)
+                self.assertIn(lgb.__file__, str(error.exception))
 
     def test_external_horizon_and_no_progress_fail_explicitly(self):
         dataset = lgb.Dataset(self.x, label=self.y)

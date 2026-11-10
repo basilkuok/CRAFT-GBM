@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "verification_date": "2026-11-10",
+  "release": "v1.1.0",
+  "base_commit": "af1e8facaab43d2a6b1a9459e5eb26de0d40e22a",
+  "scope": "Local editable installation, public training helper, documentation, and diagnostics; no paper benchmark rerun or new platform claim.",
+  "source_identity": {
+    "original_file_count": 803,
+    "all_original_files_byte_identical": true,
+    "hash_manifest": "SOURCE_MANIFEST.json"
+  },
+  "environment": {
+    "os": "Linux x86_64",
+    "python": "3.12.3",
+    "compiler": "GCC 13.3.0",
+    "cmake": "3.28.3",
+    "boost": "1.82.0",
+    "pip": "26.3",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "narwhals": "2.25.0",
+    "runtime_note": "Final checks used system Python and its compatible C++ runtime, with PYTHONPATH and LD_PRELOAD unset. This host lacks system ensurepip, so pip was bootstrapped into the isolated system-Python venv with an existing pip installer. An initial Conda-based Python 3.12.7 check exposed the documented older-libstdc++ mismatch; it also passed after selecting the compatible runtime."
+  },
+  "checks": {
+    "native_cpu_build": {
+      "result": "passed",
+      "command": "python scripts/build_native.py --jobs 4 --boost-root /opt/anaconda3",
+      "targets": ["lightgbm", "_lightgbm"]
+    },
+    "editable_install": {
+      "result": "passed",
+      "command": "python -m pip install --no-deps -e .",
+      "outside_checkout_import_and_diagnostic": "passed",
+      "pip_check": "passed",
+      "ordinary_wheel_build": "rejected as intended; only local editable installation is supported"
+    },
+    "python_tests": {
+      "result": "passed",
+      "command": "python -m unittest discover -s tests -p 'test_*.py' -v",
+      "tests": 8,
+      "failures": 0
+    },
+    "original_helper_equivalence": {
+      "result": "passed",
+      "reference": "examples/train_craft.py at base_commit",
+      "fixture": "NumPy default_rng(73); 256 rows, 8 normal features; binary labels from feature 0 plus independent normal noise",
+      "parameters": {"objective": "binary", "num_threads": 2, "num_leaves": 7, "min_data_in_leaf": 10, "learning_rate": 0.15, "verbosity": -1},
+      "endogenous": {"feature_fraction": 1.0, "completed_rounds": 214},
+      "exogenous": {"feature_fraction": 0.5, "num_boost_round": 5, "completed_rounds": 5},
+      "exactly_equal": ["training losses", "stop reason", "completed rounds", "selected-feature count history", "serialized model text", "predictions"]
+    },
+    "demonstrations": {
+      "endogenous": {"result": "passed", "completed_rounds": 734, "stop_reason": "training_loss_patience"},
+      "exogenous": {"result": "passed", "completed_rounds": 30, "stop_reason": "fixed_horizon"}
+    },
+    "readme_examples": {
+      "result": "passed",
+      "python_blocks": 2,
+      "executed_outside_checkout": true,
+      "prediction_and_model_save_reload": "passed"
+    },
+    "citation": {"result": "passed", "schema": "official CFF 1.2.0"}
+  }
+}

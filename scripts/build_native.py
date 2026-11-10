@@ -42,7 +42,8 @@ def main():
     (package / "lib").mkdir(exist_ok=True)
     shutil.copy2(library, package / "lib" / library.name)
     shutil.copy2(root / "VERSION.txt", package / "VERSION.txt")
-    print("Built CRAFT-GBM. Add python-package to PYTHONPATH before importing lightgbm.")
+    print("Built CRAFT-GBM. Register this checkout with python -m pip install --no-deps -e .")
+    print("Then verify the environment with python scripts/check_install.py.")
 
 
 if __name__ == "__main__":
