@@ -5,7 +5,7 @@ backend-path = ["."]
 
 [project]
 name = "craft-gbm"
-version = "1.1.0.dev0"
+version = "1.1.0"
 description = "CRAFT-GBM research interface for the native LightGBM extension"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"

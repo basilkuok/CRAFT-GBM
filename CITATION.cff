@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "Please cite this software release and the accompanying CRAFT-GBM paper."
 type: software
 title: "CRAFT-GBM: Confidence-Ranked Adaptive Feature Tracking"
-version: 1.0.0
-date-released: 2026-11-08
+version: 1.1.0
+date-released: 2026-11-10
 url: "https://github.com/basilkuok/CRAFT-GBM"
 repository-code: "https://github.com/basilkuok/CRAFT-GBM"
 authors:

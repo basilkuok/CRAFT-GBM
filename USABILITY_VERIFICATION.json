@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "verification_date": "2026-11-10",
-  "development_version": "1.1.0.dev0",
+  "release": "v1.1.0",
   "base_commit": "af1e8facaab43d2a6b1a9459e5eb26de0d40e22a",
   "scope": "Local editable installation, public training helper, documentation, and diagnostics; no paper benchmark rerun or new platform claim.",
   "source_identity": {

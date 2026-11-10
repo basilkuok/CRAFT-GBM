@@ -206,8 +206,8 @@ for the published v1.0.0 release.
 `USABILITY_VERIFICATION.json` records the installation checks and exact
 before/after helper comparisons for this usability update.
 
-The published CRAFT-GBM release is **v1.0.0**; the editable distribution for this
-usability update is **craft-gbm 1.1.0.dev0**, a development version.
+The CRAFT-GBM release is **v1.1.0**, and its editable distribution is
+**craft-gbm 1.1.0**.
 `VERSION.txt` and
 `lightgbm.__version__` retain the upstream LightGBM base version **4.7.0**; they are
 not the CRAFT-GBM release identifier. Use the release tag when citing or reproducing
